@@ -152,6 +152,12 @@ JOIN PortfolioProject..housetype t
 	ON p.Id = t.Id
 ORDER BY t.Neighborhood
 
+--Check the difference of the price that the house sold in different year in each neighborhood
+SELECT  t.YrSold AS YrSold, ROUND(p.SalePrice/t.LotArea, 2) AS PSF, t.Neighborhood AS Neighborhood
+FROM PortfolioProject..HousePrice p
+JOIN PortfolioProject..housetype t
+	ON p.Id = t.Id
+ORDER BY t.Neighborhood, t.YrSold
 
 --TEMP TABLE
 
